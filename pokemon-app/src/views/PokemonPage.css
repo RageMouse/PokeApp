@@ -1,0 +1,24 @@
+.pokemon-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pokemon-card {
+    flex: 0 0 calc(15% - 20px);
+    margin: 10px;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+    font-size: 36px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .page-subtitle {
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }

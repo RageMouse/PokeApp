@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\denni\\source\\repos\\PokeAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\models\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\models\\stats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\models\\pokemon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\data\\pokemonservicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\data\\pokemonservicecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\models\\sprites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\models\\sprites.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\models\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\models\\stat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\controllers\\pokemoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\controllers\\pokemoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|c:\\users\\denni\\source\\repos\\pokeapi\\pokeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B020D803-74EE-49C6-AD8E-FE5F5915E844}|PokeAPI\\PokeAPI.csproj|solutionrelative:pokeapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Sprites.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Sprites.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Models\\Sprites.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Sprites.cs",
+              "RelativeToolTip": "PokeAPI\\Models\\Sprites.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T16:45:26.919Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Stat.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Stat.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Models\\Stat.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Stat.cs",
+              "RelativeToolTip": "PokeAPI\\Models\\Stat.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T16:40:37.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Stats.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Stats.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Models\\Stats.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Stats.cs",
+              "RelativeToolTip": "PokeAPI\\Models\\Stats.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T16:36:14.991Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Pokemon.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Pokemon.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Models\\Pokemon.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Models\\Pokemon.cs",
+              "RelativeToolTip": "PokeAPI\\Models\\Pokemon.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAkAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T15:48:59.617Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Program.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Program.cs",
+              "RelativeToolTip": "PokeAPI\\Program.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAcwCYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T15:26:13.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PokemonServiceContext.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Data\\PokemonServiceContext.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Data\\PokemonServiceContext.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Data\\PokemonServiceContext.cs",
+              "RelativeToolTip": "PokeAPI\\Data\\PokemonServiceContext.cs",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAcwC0AAABLAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T15:15:07.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PokemonController.cs",
+              "DocumentMoniker": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Controllers\\PokemonController.cs",
+              "RelativeDocumentMoniker": "PokeAPI\\Controllers\\PokemonController.cs",
+              "ToolTip": "C:\\Users\\denni\\source\\repos\\PokeAPI\\PokeAPI\\Controllers\\PokemonController.cs",
+              "RelativeToolTip": "PokeAPI\\Controllers\\PokemonController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-16T15:14:50.664Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
