@@ -2,6 +2,15 @@
 
 public class Pokemon
 {
+    public Pokemon(int id, string name, string base_Experience, string height, Sprites sprites)
+    {
+        Id = id;
+        Name = name;
+        Base_Experience = base_Experience;
+        Height = height;
+        Sprites = sprites;
+    }
+
     public int Id { get; set; }
     public string Name { get; set; }
     public string Base_Experience { get; set; }

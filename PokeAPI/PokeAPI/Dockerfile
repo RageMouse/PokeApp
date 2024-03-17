@@ -9,11 +9,11 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["PokeAPI/PokeAPI.csproj", "PokeAPI/"]
+COPY ["PokeAPI/PokeAPI/PokeAPI.csproj", "PokeAPI/"]
 RUN dotnet restore "./PokeAPI/PokeAPI.csproj"
 COPY . .
 WORKDIR "/src/PokeAPI"
-RUN dotnet build "./PokeAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "./PokeAPI/PokeAPI.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release

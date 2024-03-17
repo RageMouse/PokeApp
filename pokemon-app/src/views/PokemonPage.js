@@ -8,7 +8,7 @@ function PokemonPage() {
   const [isSelectionDisabled, setIsSelectionDisabled] = useState(false);
 
   useEffect(() => {
-    fetch('https://localhost:32768/api/pokemon')
+    fetch('https://localhost:8082/api/pokemon')
       .then(response => response.json())
       .then(data => setPokemonData(data))
       .catch(error => console.error('Error fetching Pokémon data:', error));
