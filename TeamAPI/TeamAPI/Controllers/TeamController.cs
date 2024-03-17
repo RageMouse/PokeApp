@@ -22,6 +22,12 @@ public class TeamController : Controller
         return await _context.Team.ToListAsync();
     }
 
+    [HttpGet("{id}")]
+    public async Task<ActionResult<Team>> GetTeamById(int id)
+    {
+        return await _context.Team.FindAsync(id);
+    }
+
     [HttpPost()]
     public async Task<ActionResult<Team>> CreateTeam([FromBody] Team team)
     {
