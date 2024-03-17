@@ -21,4 +21,13 @@ public class TeamController : Controller
     {
         return await _context.Team.ToListAsync();
     }
+
+    [HttpPost()]
+    public async Task<ActionResult<Team>> CreateTeam([FromBody] Team team)
+    {
+        _context.Team.Add(team);
+        await _context.SaveChangesAsync();
+
+        return Ok(team);
+    }
 }
