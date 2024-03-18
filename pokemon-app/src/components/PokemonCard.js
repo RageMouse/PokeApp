@@ -22,7 +22,7 @@ function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDis
     <Card className={`pokemon-card ${isSelected ? 'selected' : ''}`} onClick={toggleSelection}>
       <Card.Img variant="top" src={pokemon.sprites.front_Default} alt={pokemon.name} />
       <Card.Body>
-        <Card.Title className="pokemon-name">{pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}</Card.Title>
+        <Card.Title className="pokemon-name">{pokemon.name.split('-')[0].charAt(0).toUpperCase() + pokemon.name.split('-')[0].slice(1)}</Card.Title>
         <Card.Text className="pokemon-info">
           Type: {pokemon.type}<br />
           HP: {pokemon.stats[0].base_Stat}<br />
