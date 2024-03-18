@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Spinner } from 'react-bootstrap';
 import PokemonCard from '../components/PokemonCard';
 import { useNavigate } from 'react-router-dom';
 import './TeamPage.css';
 
 function TeamPage() {
   const [teams, setTeams] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,7 +15,6 @@ function TeamPage() {
 
   const fetchTeams = async () => {
     try {
-      // Fetch teams data from the API
       const response = await fetch('https://poketeamapi.azurewebsites.net/api/Team');
       if (response.ok) {
         const teamsData = await response.json();
@@ -25,6 +25,8 @@ function TeamPage() {
       }
     } catch (error) {
       console.error('Error fetching teams data:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -35,7 +37,7 @@ function TeamPage() {
       return { ...team, pokemon: pokemonData };
     } catch (error) {
       console.error('Error fetching Pokémon data for team:', error);
-      return team; // Return team as is if there's an error
+      return team;
     }
   };
 
@@ -60,26 +62,31 @@ function TeamPage() {
   return (
     <div className="team-page">
       <div className="page-title">Teams</div>
-      {teams.map((team, index) => (
-        <Row key={index} className="team-row">
-          <Row>
-            <Button disabled variant="primary" onClick={() => handleTeamSelection(team.id)}>
-              <h3>Trainer: {team.name} <br></br>Team naam: {team.teamName}</h3>
-            </Button>
+      {isLoading ? (
+        <Spinner animation="border" role="status">
+        </Spinner>
+      ) : (
+        teams.map((team, index) => (
+          <Row key={index} className="team-row">
+            <Row>
+              <Button disabled variant="primary" onClick={() => handleTeamSelection(team.id)}>
+                <h3>Trainer: {team.name} <br />Team naam: {team.teamName}</h3>
+              </Button>
+            </Row>
+            <Row className="team-pokemon">
+              {team.pokemon.map(pokemon => (
+                <Col key={pokemon.id}>
+                  <PokemonCard
+                    pokemon={pokemon}
+                    selectedPokemons={[]}
+                    disabled={true}
+                  />
+                </Col>
+              ))}
+            </Row>
           </Row>
-          <Row className="team-pokemon">
-            {team.pokemon.map(pokemon => (
-              <Col key={pokemon.id}>
-                <PokemonCard
-                  pokemon={pokemon}
-                  selectedPokemons={[]}
-                  disabled={true}
-                />
-              </Col>
-            ))}
-          </Row>
-        </Row>
-      ))}
+        ))
+      )}
     </div>
   );
 }
