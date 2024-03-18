@@ -22,3 +22,7 @@
     text-align: center;
     width: 100%;
   }
+
+  .search-bar {
+    margin-left: 10px;
+  }
