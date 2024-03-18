@@ -17,4 +17,5 @@ public class Pokemon
     public string Height { get; set; }
     public Sprites Sprites { get; set; }
     public List<Stats> Stats { get; set; }
+    public List<Types> Types { get; set; }
 }

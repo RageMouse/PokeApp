@@ -13,7 +13,7 @@ function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDis
     if (disabled || (isSelectionDisabled && !isSelected)) {
       return;
     }
-  
+
     setIsSelected(!isSelected);
     onToggleSelect(pokemon.id, !isSelected);
   };
@@ -24,7 +24,13 @@ function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDis
       <Card.Body>
         <Card.Title className="pokemon-name">{pokemon.name.split('-')[0].charAt(0).toUpperCase() + pokemon.name.split('-')[0].slice(1)}</Card.Title>
         <Card.Text className="pokemon-info">
-          Type: {pokemon.type}<br />
+          Types: {pokemon.types.map((type, index) => (
+            <span key={index}>
+              {type.type.name}
+              {index < pokemon.types.length - 1 && ', '}
+            </span>
+          ))}
+          <br />
           HP: {pokemon.stats[0].base_Stat}<br />
           Attack: {pokemon.stats[1].base_Stat}<br />
           Defense: {pokemon.stats[2].base_Stat}<br />
