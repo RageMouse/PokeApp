@@ -13,7 +13,7 @@ function PokemonPage() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://localhost:32798/api/pokemon')
+    fetch('https://pokeappapi.azurewebsites.net/api/pokemon')
       .then(response => response.json())
       .then(data => setPokemonData(data))
       .catch(error => console.error('Error fetching Pokémon data:', error));
@@ -29,7 +29,7 @@ function PokemonPage() {
     };
   
     try {
-      const response = await fetch('https://localhost:32800/api/Team', {
+      const response = await fetch('https://poketeamapi.azurewebsites.net/api/Team', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
