@@ -26,7 +26,8 @@ public class PokemonServiceContext : DbContext
     {
         try
         {
-            HttpResponseMessage response = await _httpClient.GetAsync(_baseUrl);
+            string requestUrl = _baseUrl + "?limit=151";
+            HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
 
             if (response.IsSuccessStatusCode)
             {
@@ -71,7 +72,7 @@ public class PokemonServiceContext : DbContext
     {
         try
         {
-            string pokemonId = $"{id}";
+            string pokemonId = $"/{id}";
             string requestUrl = _baseUrl + pokemonId;
 
             HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
