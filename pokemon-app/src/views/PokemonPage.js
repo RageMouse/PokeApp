@@ -42,7 +42,7 @@ function PokemonPage() {
       }
   
       console.log('Team submitted successfully!');
-      navigate('/pokemon');
+      navigate('/teams');
     } catch (error) {
       console.error('Error submitting team:', error);
     }
