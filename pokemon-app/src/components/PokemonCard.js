@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import '../styling/PokemonCard.css';
 
-function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDisabled }) {
+function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDisabled, disabled }) {
   const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
@@ -10,7 +10,7 @@ function PokemonCard({ pokemon, onToggleSelect, selectedPokemons, isSelectionDis
   }, [selectedPokemons, pokemon.id]);
 
   const toggleSelection = () => {
-    if (isSelectionDisabled && !isSelected) {
+    if (disabled || (isSelectionDisabled && !isSelected)) {
       return;
     }
   
