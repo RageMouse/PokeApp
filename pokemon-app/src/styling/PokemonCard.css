@@ -8,9 +8,9 @@
   }
   
   .pokemon-card .card-img-top {
-    height: 300px;
+    height: auto;
     object-fit: cover;
-    width: 300px;
+    width: auto;
   }
   
   .pokemon-name {
