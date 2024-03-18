@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Spinner } from 'react-bootstrap';
 import PokemonCard from '../components/PokemonCard';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
@@ -10,14 +10,28 @@ function PokemonPage() {
   const [selectedPokemons, setSelectedPokemons] = useState({});
   const [isSelectionDisabled, setIsSelectionDisabled] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(true); // Add loading state
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://pokeappapi.azurewebsites.net/api/pokemon')
-      .then(response => response.json())
-      .then(data => setPokemonData(data))
-      .catch(error => console.error('Error fetching Pokémon data:', error));
+    fetchPokemonData();
   }, []);
+
+  const fetchPokemonData = async () => {
+    try {
+      const response = await fetch('https://pokeappapi.azurewebsites.net/api/pokemon');
+      if (response.ok) {
+        const data = await response.json();
+        setPokemonData(data);
+      } else {
+        console.error('Failed to fetch Pokémon data');
+      }
+    } catch (error) {
+      console.error('Error fetching Pokémon data:', error);
+    } finally {
+      setIsLoading(false); // Set loading to false after fetching
+    }
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,7 +63,6 @@ function PokemonPage() {
   };
 
   const handleToggleSelect = (pokemonId, isSelected) => {
-    console.log(pokemonData)
     if (Object.keys(selectedPokemons).length >= 6 && !isSelected) {
       const { [pokemonId]: _, ...updatedSelectedPokemons } = selectedPokemons;
       setSelectedPokemons(updatedSelectedPokemons);
@@ -62,11 +75,7 @@ function PokemonPage() {
   };
 
   useEffect(() => {
-    if (Object.keys(selectedPokemons).length >= 6) {
-      setIsSelectionDisabled(true);
-    } else {
-      setIsSelectionDisabled(false);
-    }
+    setIsSelectionDisabled(Object.keys(selectedPokemons).length >= 6);
   }, [selectedPokemons]);
 
   const filteredPokemonData = pokemonData.filter(pokemon =>
@@ -75,7 +84,6 @@ function PokemonPage() {
 
   return (
     <div className="pokemon-page">
-
       <div className="page-title">Pokémon Collection</div>
       <Button variant="primary" onClick={handleSubmit} disabled={!isSelectionDisabled}>
         Submit
@@ -89,15 +97,20 @@ function PokemonPage() {
         />
       </div>
       <div className="page-subtitle">Select your team! (6 Pokémon)</div>
-      {filteredPokemonData.map(pokemon => (
-        <PokemonCard
-          key={pokemon.id}
-          pokemon={pokemon}
-          onToggleSelect={handleToggleSelect}
-          selectedPokemons={selectedPokemons}
-          isSelectionDisabled={isSelectionDisabled}
-        />
-      ))}
+      {isLoading ? (
+        <Spinner animation="border" role="status">
+        </Spinner>
+      ) : (
+        filteredPokemonData.map(pokemon => (
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            onToggleSelect={handleToggleSelect}
+            selectedPokemons={selectedPokemons}
+            isSelectionDisabled={isSelectionDisabled}
+          />
+        ))
+      )}
     </div>
   );
 }
