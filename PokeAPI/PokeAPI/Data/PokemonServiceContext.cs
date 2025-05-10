@@ -2,6 +2,7 @@
 using PokeAPI.Models;
 using Newtonsoft.Json;
 using PokeAPI.Models.Response;
+using PokeAPI.Models.Request;
 
 namespace PokeAPI.Data;
 
@@ -22,19 +23,19 @@ public class PokemonServiceContext : DbContext
     {
     }
 
-    public async Task<List<Pokemon>> GetAllPokemon()
+    public async Task<GetAll> GetAllPokemon(QueryOptions queryOptions)
     {
         try
         {
-            string requestUrl = _baseUrl + "?limit=151";
+            string requestUrl = $"{_baseUrl}?limit={queryOptions.Limit}&offset={queryOptions.Offset}";
             HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
 
             if (response.IsSuccessStatusCode)
             {
                 string responseBody = await response.Content.ReadAsStringAsync();
-
                 PokemonBaseResponse responseObject = JsonConvert.DeserializeObject<PokemonBaseResponse>(responseBody);
-                var pokemonDetails = new List<Pokemon>();
+
+                var pokemonDetails = new List<GetAllPokemonResponse>();
 
                 foreach (var pokemonItem in responseObject.Results)
                 {
@@ -43,17 +44,12 @@ public class PokemonServiceContext : DbContext
                     if (pokemonResponse.IsSuccessStatusCode)
                     {
                         string pokemonResponseBody = await pokemonResponse.Content.ReadAsStringAsync();
-
-                        var pokemon = JsonConvert.DeserializeObject<Pokemon>(pokemonResponseBody);
+                        var pokemon = JsonConvert.DeserializeObject<GetAllPokemonResponse>(pokemonResponseBody);
                         pokemonDetails.Add(pokemon);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Failed to fetch data for all Pokemon");
                     }
                 }
 
-                return pokemonDetails;
+                return new GetAll(responseObject.Count, pokemonDetails);
             }
             else
             {
