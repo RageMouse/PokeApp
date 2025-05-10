@@ -4,6 +4,8 @@ import NavigationBar from './components/Navgiation';
 import HomePage from './views/HomePage';
 import PokemonPage from './views/PokemonPage';
 import TeamPage from './views/TeamPage';
+import CompareTeamPage from './views/CompareTeamPage';
+import TeamDetailPage from './views/TeamDetail';
 
 function App() {
   return (
@@ -15,7 +17,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/pokemon" element={<PokemonPage />} />
-          <Route path="teams" element={<TeamPage />} />
+          <Route path="/teams" element={<TeamPage />} />
+          <Route path="/teams/:teamId" element={<TeamDetailPage />} />
+          <Route path="/pokemon/:pokemonId" element={<PokemonPage />} />
+          <Route path='/battle' element={<CompareTeamPage />} />
         </Routes>
       </div>
     </Router>
