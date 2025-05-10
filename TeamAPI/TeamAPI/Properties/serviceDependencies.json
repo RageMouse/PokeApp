@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:TeamDatabase1",
+      "dynamicId": null
+    }
+  }
+}
