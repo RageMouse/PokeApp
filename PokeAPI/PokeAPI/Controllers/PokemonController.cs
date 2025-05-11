@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PokeAPI.Data;
 using PokeAPI.Models;
+using PokeAPI.Models.Request;
+using PokeAPI.Models.Response;
 
 namespace PokeAPI.Controllers;
 
@@ -16,14 +18,15 @@ public class PokemonController : Controller
     }
 
     [HttpGet()]
-    public async Task<ActionResult<List<Pokemon>>> GetAllPokemon()
+    public async Task<GetAll> GetAllPokemon([FromQuery] int? limit, [FromQuery] int? offset)
     {
-        var pokemon = await _context.GetAllPokemon();
-
-        if (pokemon == null)
+        var queryParameters = new QueryOptions
         {
-            return NotFound();
-        }
+            Limit = limit ?? 30,
+            Offset = offset ?? 0
+        };
+
+        var pokemon = await _context.GetAllPokemon(queryParameters);
 
         return pokemon;
     }
@@ -38,6 +41,17 @@ public class PokemonController : Controller
             return NotFound();
         }
 
+        return pokemon;
+    }
+
+    [HttpGet("name/{name}")]
+    public async Task<ActionResult<GetAllPokemonResponse>> GetPokemonByName(string name)
+    {
+        var pokemon = await _context.GetPokemonByName(name);
+        if (pokemon == null)
+        {
+            return NotFound();
+        }
         return pokemon;
     }
 }

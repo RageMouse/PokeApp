@@ -1,0 +1,136 @@
+/* CompareTeamPage.css */
+
+.compare-team-page {
+    padding: 20px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.team-column {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.team-header {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.team-header h3 {
+    font-size: 1.5rem;
+    color: #495057;
+}
+
+.team-header h4 {
+    font-size: 1.2rem;
+    color: #6c757d;
+}
+
+.team-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.selected-indicator {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    background: #28a745;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.battle-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.battle-button {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    text-align: center;
+}
+
+.battle-button:hover {
+    background: #c82333;
+}
+
+.battle-result {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #17a2b8;
+    margin-top: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.alert {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.spinner-border {
+    display: block;
+    margin: 50px auto;
+}
+
+button.btn-secondary {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    background: #6c757d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+button.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.selected-pokemon {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 10px;
+    background: rgba(0, 123, 255, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px auto;
+    max-width: 300px;
+}
+
+.selected-pokemon .no-pokemon {
+    font-size: 1rem;
+    color: #6c757d;
+    font-style: italic;
+}

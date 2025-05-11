@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "secretStore": "AzureAppSettings",
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourceGroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/pokeapp/databases/pokeapp",
+      "type": "mssql.azure",
+      "connectionId": "ConnectionStrings:TeamDatabase1",
+      "dynamicId": null
+    }
+  }
+}
