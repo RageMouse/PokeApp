@@ -118,4 +118,59 @@ public class PokemonServiceContext : DbContext
             return null;
         }
     }
+
+    public async Task<Dictionary<string, int>> CalculateTeamWeaknesses(List<int> teamPokemonIds)
+    {
+        var typeWeaknesses = new Dictionary<string, List<string>>
+        {
+            { "fire", new List<string> { "Water", "Rock", "Ground" } },
+            { "water", new List<string> { "Electric", "Grass" } },
+            { "grass", new List<string> { "Fire", "Ice", "Poison", "Flying", "Bug" } },
+            { "electric", new List<string> { "Ground" } },
+            { "rock", new List<string> { "Water", "Grass", "Fighting", "Ground", "Steel" } },
+            { "ground", new List<string> { "Water", "Grass", "Ice" } },
+            { "flying", new List<string> { "Electric", "Ice", "Rock" } },
+            { "psychic", new List<string> { "Bug", "Ghost", "Dark" } },
+            { "dark", new List<string> { "Fighting", "Bug", "Fairy" } },
+            { "fairy", new List<string> { "Poison", "Steel" } },
+            { "steel", new List<string> { "Fire", "Fighting", "Ground" } },
+            { "fighting", new List<string> { "Flying", "Psychic", "Fairy" } },
+            { "poison", new List<string> { "Ground", "Psychic" } },
+            { "bug", new List<string> { "Fire", "Flying", "Rock" } },
+            { "ice", new List<string> { "Fire", "Fighting", "Rock", "Steel" } },
+            { "dragon", new List<string> { "Ice", "Dragon", "Fairy" } },
+            { "ghost", new List<string> { "Ghost", "Dark" } },
+            { "normal", new List<string> { "Fighting" } }
+        };
+
+        var teamWeaknesses = new Dictionary<string, int>();
+
+        foreach (var pokemonId in teamPokemonIds)
+        {
+            // Fetch Pokémon details
+            var pokemon = await GetPokemonById(pokemonId);
+            if (pokemon == null || pokemon.Types == null) continue;
+
+            // Calculate weaknesses for each type
+            foreach (var type in pokemon.Types)
+            {
+                if (typeWeaknesses.TryGetValue(type.Type.Name, out var weaknesses))
+                {
+                    foreach (var weakness in weaknesses)
+                    {
+                        if (teamWeaknesses.ContainsKey(weakness))
+                        {
+                            teamWeaknesses[weakness]++;
+                        }
+                        else
+                        {
+                            teamWeaknesses[weakness] = 1;
+                        }
+                    }
+                }
+            }
+        }
+
+        return teamWeaknesses;
+    }
 }

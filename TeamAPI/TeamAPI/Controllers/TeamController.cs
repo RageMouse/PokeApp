@@ -36,4 +36,18 @@ public class TeamController : Controller
 
         return Ok(team);
     }
+
+    [HttpGet("statistics/{id}")]
+    public async Task<ActionResult<object>> GetTeamStatisticsById(int id)
+    {
+        var team = _context.Team.FindAsync(id);
+
+        return Ok(new
+        {
+            teamName = team.Result.TeamName,
+            pokemonCount = team.Result.PokemonIds.Count,
+            isDeleted = team.Result.IsDeleted,
+            createdDate = team.Result.IsCreated
+        });
+    }
 }

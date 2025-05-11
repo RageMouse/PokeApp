@@ -54,4 +54,20 @@ public class PokemonController : Controller
         }
         return pokemon;
     }
+
+    [HttpGet("weaknesses")]
+    public async Task<ActionResult<Dictionary<string, int>>> GetWeaknesses([FromQuery] List<int> pokemonIds)
+    {
+        if (pokemonIds == null || !pokemonIds.Any())
+        {
+            return BadRequest("Pokemon IDs must be provided.");
+        }
+
+        var weaknesses = await _context.CalculateTeamWeaknesses(pokemonIds);
+        if (weaknesses == null)
+        {
+            return NotFound();
+        }
+        return weaknesses;
+    }
 }

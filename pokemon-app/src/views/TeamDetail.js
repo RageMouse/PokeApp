@@ -11,11 +11,14 @@ function TeamDetail() {
     const [team, setTeam] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState('');
+    const [weaknesses, setWeaknesses] = useState(null);
+    const [pokemonIds, setPokemonIds] = useState([]);
 
     useEffect(() => {
         console.log('Team ID from location state:', teamId);
         if (teamId) {
             fetchTeamDetails(teamId);
+            fetchWeaknesses(teamId);
         } else {
             setErrorMessage('Geen team geselecteerd!');
             setIsLoading(false);
@@ -29,6 +32,7 @@ function TeamDetail() {
             if (response.ok) {
                 const teamData = await response.json();
                 const pokemonData = await Promise.all(teamData.pokemonIds.map(fetchPokemonById));
+                setPokemonIds([...teamData.pokemonIds]);
                 setTeam({ ...teamData, pokemon: pokemonData });
             } else {
                 throw new Error('Failed to fetch team details');
@@ -52,6 +56,39 @@ function TeamDetail() {
             console.error('Error fetching Pokémon:', error);
             throw error;
         }
+    };
+
+    const fetchWeaknesses = async (id) => {
+        try {
+            const queryParams = new URLSearchParams({ pokemonIds: pokemonIds.join(',') }).toString();
+            console.log(pokemonIds);
+            const response = await fetch(`https://localhost:32776/api/Pokemon/weaknesses?${queryParams}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            if (response.ok) {
+                const weaknessesData = await response.json();
+                setWeaknesses(weaknessesData);
+                console.log('Weaknesses data:', weaknessesData);
+            } else {
+                throw new Error('Failed to fetch weaknesses');
+            }
+        } catch (error) {
+            console.error('Error fetching weaknesses:', error);
+            setErrorMessage('Fout bij het ophalen van zwakheden.');
+        }
+    };
+
+    const calculateWeaknesses = (pokemonData) => {
+        const weaknessesMap = {};
+        pokemonData.forEach(pokemon => {
+            pokemon.weaknesses.forEach(type => {
+                weaknessesMap[type] = (weaknessesMap[type] || 0) + 1;
+            });
+        });
+        setWeaknesses(weaknessesMap);
     };
 
     return (
@@ -79,6 +116,18 @@ function TeamDetail() {
                             </Col>
                         ))}
                     </Row>
+                    {weaknesses && (
+                        <div className="team-weaknesses">
+                            <h4>Zwakheden:</h4>
+                            <ul>
+                                {Object.entries(weaknesses).map(([type, count]) => (
+                                    <li key={type}>
+                                        {type}: {count}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                     <Button variant="secondary" onClick={() => navigate(-1)}>
                         Terug
                     </Button>
