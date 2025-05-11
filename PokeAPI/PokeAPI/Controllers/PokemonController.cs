@@ -22,7 +22,7 @@ public class PokemonController : Controller
     {
         var queryParameters = new QueryOptions
         {
-            Limit = limit ?? 50,
+            Limit = limit ?? 30,
             Offset = offset ?? 0
         };
 
@@ -41,6 +41,17 @@ public class PokemonController : Controller
             return NotFound();
         }
 
+        return pokemon;
+    }
+
+    [HttpGet("name/{name}")]
+    public async Task<ActionResult<GetAllPokemonResponse>> GetPokemonByName(string name)
+    {
+        var pokemon = await _context.GetPokemonByName(name);
+        if (pokemon == null)
+        {
+            return NotFound();
+        }
         return pokemon;
     }
 }

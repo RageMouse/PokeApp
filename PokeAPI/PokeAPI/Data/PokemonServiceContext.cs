@@ -93,4 +93,29 @@ public class PokemonServiceContext : DbContext
             return null;
         }
     }
+
+    public async Task<GetAllPokemonResponse> GetPokemonByName(string name)
+    {
+        try
+        {
+            string requestUrl = $"{_baseUrl}/{name}?fields=id,name,sprites";
+            HttpResponseMessage response = await _httpClient.GetAsync(requestUrl);
+            if (response.IsSuccessStatusCode)
+            {
+                string responseBody = await response.Content.ReadAsStringAsync();
+                GetAllPokemonResponse pokemon = JsonConvert.DeserializeObject<GetAllPokemonResponse>(responseBody);
+                return pokemon;
+            }
+            else
+            {
+                Console.WriteLine("Failed to fetch data: " + response.ReasonPhrase);
+                return null;
+            }
+        }
+        catch (HttpRequestException e)
+        {
+            Console.WriteLine("Request exception: " + e.Message);
+            return null;
+        }
+    }
 }
